@@ -10,7 +10,7 @@ class Program
         string tries = "tries";
         
         Random randomGenerator = new Random();
-        int magicNumber = randomGenerator.Next(1, 11);
+        int magicNumber = randomGenerator.Next(1, 101);
         Console.WriteLine($"Random number generated successfully.{magicNumber}");
 
         while (intGuess != magicNumber)
