@@ -25,7 +25,7 @@ class Program
         double itemsInList = numberList.Count - 1;
 
         Console.WriteLine($"Sum: {finalNumber}");
-        Console.WriteLine($"Avg: {Math.Round(finalNumber / itemsInList, 2)}");
+        Console.WriteLine($"Avg: {Math.Round(finalNumber / itemsInList, 3)}");
         Console.WriteLine($"Max: {numberList.Max()}");
     }
 }

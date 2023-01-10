@@ -17,16 +17,28 @@ class Program
         {
             numTries += 1;
             Console.Write("What is your guess? ");
-            intGuess = int.Parse(Console.ReadLine());
-
-            if (intGuess > magicNumber)
+            string guess = Console.ReadLine();
+            if (guess != "")
             {
-                Console.WriteLine("Lower");
+                intGuess = int.Parse(guess);
+                if (intGuess > magicNumber)
+                {
+                    Console.WriteLine("Lower");
+                }
+                if (intGuess < magicNumber)
+                {
+                    Console.WriteLine("Higher");  
+                }
+                else if (intGuess.ToString() == "")
+                {
+                    Console.Write("What is your guess? ");
+                    intGuess = int.Parse(Console.ReadLine());
+                }
             }
-            else if (intGuess < magicNumber)
+            else
             {
-                Console.WriteLine("Higher");
-            }
+                Console.WriteLine("Please input a number.");
+            } 
         }
 
         if (numTries == 1)
