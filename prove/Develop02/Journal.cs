@@ -1,22 +1,41 @@
 using System.IO;
 class Journal
 {   
-    public void savePrompt(string journalEntries, string fileName)
+    public List<string> _newList = new List<string>();
+    string[] lines;
+    public void savePrompt(List<string> journalEntries, string fileName)
     {
-
         
         
         using (StreamWriter outputFile = new StreamWriter(fileName))
-        {
-            // You can add text to the file with the WriteLine method
-            outputFile.WriteLine("This will be the first line in the file.");
-            
+        {   
             // You can use the $ and include variables just like with Console.WriteLine
-            string color = "Blue";
-            outputFile.WriteLine($"My favorite color is {color}");
+            foreach (string item in journalEntries)
+            {
+                outputFile.WriteLine($"{item}");
+            }
+                
         }
 
-        Console.WriteLine($"File saved as {fileName}.txt");
+        Console.WriteLine($"File saved as {fileName}");
+    }
+        
+        
+    public void loadPrompt(string filename)
+    {
+        try 
+        {
+            lines = System.IO.File.ReadAllLines(filename);
 
+            foreach (string line in lines)
+            {
+                _newList.Add(line);
+                //Console.WriteLine(line);
+            }
+        }
+        catch(FileNotFoundException)
+        {
+            Console.WriteLine("Please enter a valid file name.");
+        }
     }
 }
