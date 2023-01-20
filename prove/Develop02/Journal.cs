@@ -1,8 +1,8 @@
 using System.IO;
 class Journal
 {   
-    public List<string> _newList = new List<string>();
-    string[] lines;
+    public List<string> _loadedList = new List<string>();
+    string[] _fileLines;
     public void savePrompt(List<string> journalEntries, string fileName)
     {
         
@@ -25,11 +25,11 @@ class Journal
     {
         try 
         {
-            lines = System.IO.File.ReadAllLines(filename);
+            _fileLines = System.IO.File.ReadAllLines(filename);
 
-            foreach (string line in lines)
+            foreach (string line in _fileLines)
             {
-                _newList.Add(line);
+                _loadedList.Add(line);
                 //Console.WriteLine(line);
             }
         }

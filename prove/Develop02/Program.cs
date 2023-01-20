@@ -45,8 +45,8 @@ class Program
                 Console.Write("What is the name of the file: ");
                 var filename = Console.ReadLine();
                 journal.loadPrompt(filename);
-                List<string> entries = journal._newList;
-                entry._userEntries = journal._newList;
+                List<string> entries = journal._loadedList;
+                entry._userEntries = journal._loadedList;
 
             } 
             else if (_userInput == "4")
