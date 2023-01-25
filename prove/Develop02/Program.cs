@@ -3,12 +3,18 @@ using System;
 class Program
 {   
     static string _userInput;
+
     public List<string> entries = new List<string>();
     static void Main(string[] args)
     {
         var newPrompt = new PromptGenerator();
         var entry = new Entry();
         var journal = new Journal();
+        var name = new Name();
+
+
+        var _username = name.getName();
+        
         
         while (_userInput != "5")
         {
@@ -18,7 +24,7 @@ class Program
             Console.WriteLine("3. Load");
             Console.WriteLine("4. Save");
             Console.WriteLine("5. Quit");
-            Console.Write("What would you like to do?: ");
+            Console.Write($"What would you like to do, {char.ToUpper(_username[0]) + _username.Substring(1)}?: ");
             _userInput = Console.ReadLine();
             Console.WriteLine();
 
@@ -39,7 +45,8 @@ class Program
                     Console.WriteLine(line);
                 }
  
-            } else if (_userInput == "3")
+            } 
+            else if (_userInput == "3")
             {
                 //LOAD JOURNAL FILE HERE
                 Console.Write("What is the name of the file: ");

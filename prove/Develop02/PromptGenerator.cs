@@ -14,7 +14,7 @@ class PromptGenerator
     public System.Random random = new Random();
     public string GeneratePrompt()
     {
-        if (_usedList.Count >= 5)
+        if (_usedList.Count >= _promptList.Count())
         {
             _usedList.Clear();
         }
