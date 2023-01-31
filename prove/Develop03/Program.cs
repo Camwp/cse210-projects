@@ -6,11 +6,11 @@ class Program
     {
         Scripture s = new Scripture();
 
-        string fullScript = s.GetScripture(); 
-        string reference = fullScript.Split(".")[0].Trim();
-        string scriptText = fullScript.Split(".")[1].Trim();
-        
-        Console.WriteLine($"{reference} {scriptText}");
+        string _fullScript = s.GetScripture(); 
+        string _reference = _fullScript.Split(".")[0].Trim();
+        string _scriptText = _fullScript.Split(".")[1].Trim();
+
+        Console.WriteLine($"{_reference} {_scriptText}");
 
     }
 }
