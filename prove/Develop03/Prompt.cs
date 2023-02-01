@@ -2,12 +2,12 @@ using System;
 
 class Prompt
 {
-    private static string userInput;
+    private static string _userInput;
     public string GetInput()
     {
         Console.WriteLine("\nPress enter to continue or type 'quit' to finish:");
-        userInput = Console.ReadLine();
+        _userInput = Console.ReadLine();
         
-        return userInput;
+        return _userInput;
     }
 }
