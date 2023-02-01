@@ -23,10 +23,5 @@ class Scripture
         return _fullScripture;
     }
 
-    public void setScripture()
-    {
-
-    }
-
 
 }
