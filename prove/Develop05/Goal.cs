@@ -1,21 +1,12 @@
-abstract class Goal
+public class Goal
 {
-    protected abstract void CreateGoal();
+    public string Name { get; set; }
+    public int PointValue { get; set; }
+    public string Description { get; set; }
+    public bool IsComplete { get; set; }
 
-    public void SaveGoals()
+    public virtual int GetPoints()
     {
-
+        return IsComplete ? PointValue : 0;
     }
-
-    public void LoadGoals()
-    {
-
-    }
-
-    public void RecordEvent()
-    {
-
-    }
-
-
 }
