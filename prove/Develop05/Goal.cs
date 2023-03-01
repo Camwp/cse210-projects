@@ -1,12 +1,12 @@
 public class Goal
 {
-    public string Name { get; set; }
-    public int PointValue { get; set; }
-    public string Description { get; set; }
-    public bool IsComplete { get; set; }
+    public string _name { get; set; }
+    public int _pointValue { get; set; }
+    public string _description { get; set; }
+    public bool _isComplete { get; set; }
 
     public virtual int GetPoints()
     {
-        return IsComplete ? PointValue : 0;
+        return _isComplete ? _pointValue : 0;
     }
 }

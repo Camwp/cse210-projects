@@ -3,6 +3,6 @@ public class SimpleGoal : Goal
 {
     public override int GetPoints()
     {
-        return IsComplete ? PointValue : 0;
+        return _isComplete ? _pointValue : 0;
     }
 }

@@ -33,11 +33,11 @@ class Program
                             // Add Simple Goal
                             SimpleGoal simpleGoal = new SimpleGoal();
                             Console.WriteLine("Enter name:");
-                            simpleGoal.Name = Console.ReadLine();
+                            simpleGoal._name = Console.ReadLine();
                             Console.WriteLine("Enter point value:");
-                            simpleGoal.PointValue = int.Parse(Console.ReadLine());
+                            simpleGoal._pointValue = int.Parse(Console.ReadLine());
                             Console.WriteLine("Enter description:");
-                            simpleGoal.Description = Console.ReadLine();
+                            simpleGoal._description = Console.ReadLine();
                             _goals.Add(simpleGoal);
                             Console.WriteLine("Goal created.");
                             createRunning = false;
@@ -47,11 +47,11 @@ class Program
                             // Add Eternal Goal
                                 EternalGoal eternalGoal = new EternalGoal();
                                 Console.WriteLine("Enter name:");
-                                eternalGoal.Name = Console.ReadLine();
+                                eternalGoal._name = Console.ReadLine();
                                 Console.WriteLine("Enter point value:");
-                                eternalGoal.PointValue = int.Parse(Console.ReadLine());
+                                eternalGoal._pointValue = int.Parse(Console.ReadLine());
                                 Console.WriteLine("Enter description:");
-                                eternalGoal.Description = Console.ReadLine();
+                                eternalGoal._description = Console.ReadLine();
                                 _goals.Add(eternalGoal);
                                 Console.WriteLine("Goal created.");
                                 createRunning = false;
@@ -61,15 +61,15 @@ class Program
                             // Add Checklist Goal
                                 ChecklistGoal checklistGoal = new ChecklistGoal();
                                 Console.WriteLine("Enter name:");
-                                checklistGoal.Name = Console.ReadLine();
+                                checklistGoal._name = Console.ReadLine();
                                 Console.WriteLine("Enter point value per completion:");
-                                checklistGoal.PointValue = int.Parse(Console.ReadLine());
+                                checklistGoal._pointValue = int.Parse(Console.ReadLine());
                                 Console.WriteLine("Enter description:");
-                                checklistGoal.Description = Console.ReadLine();
+                                checklistGoal._description = Console.ReadLine();
                                 Console.WriteLine("Enter number of required completions:");
-                                checklistGoal.RequiredCompletions = int.Parse(Console.ReadLine());
+                                checklistGoal._requiredCompletions = int.Parse(Console.ReadLine());
                                 Console.WriteLine("Enter bonus point value:");
-                                checklistGoal.BonusPoints = int.Parse(Console.ReadLine());
+                                checklistGoal._bonusPoints = int.Parse(Console.ReadLine());
                                 _goals.Add(checklistGoal);
                                 Console.WriteLine("Goal created.");
                                 createRunning = false;
@@ -128,7 +128,7 @@ class Program
             if (goal is not EternalGoal eternalGoal)
             {
                 numOfGoals += 1;
-                goalCompletion = $"{numOfGoals}. [{(goal.IsComplete ? "√" : " ")}]";
+                goalCompletion = $"{numOfGoals}. [{(goal._isComplete ? "√" : " ")}]";
                 
             }
             else 
@@ -136,11 +136,11 @@ class Program
                 numOfGoals += 1;
                 goalCompletion = $"{numOfGoals}. [∞]";  
             }
-            Console.Write($"{goalCompletion} {goal.Name}: {goal.Description}");
+            Console.Write($"{goalCompletion} {goal._name}: {goal._description}");
 
             if (goal is ChecklistGoal checklistGoal)
             {
-                Console.Write($" (Completed {checklistGoal.TimesCompleted}/{checklistGoal.RequiredCompletions} times)");
+                Console.Write($" (Completed {checklistGoal._timesCompleted}/{checklistGoal._requiredCompletions} times)");
             }
 
             Console.WriteLine();
@@ -162,15 +162,15 @@ class Program
         }
         if (goal is ChecklistGoal checklistGoal)
         {
-            checklistGoal.TimesCompleted += 1;
-            if (checklistGoal.TimesCompleted >= checklistGoal.RequiredCompletions)
+            checklistGoal._timesCompleted += 1;
+            if (checklistGoal._timesCompleted >= checklistGoal._requiredCompletions)
             {
-                goal.IsComplete = true;
+                goal._isComplete = true;
             }
         }
         else if (goal is SimpleGoal simpleGoal)
         {
-            goal.IsComplete = true;
+            goal._isComplete = true;
         }
 
         
@@ -187,10 +187,10 @@ class Program
             foreach (Goal goal in _goals)
             {
                 string type = goal.GetType().Name;
-                string name = goal.Name;
-                int pointValue = goal.PointValue;
-                string description = goal.Description;
-                bool isComplete = goal.IsComplete;
+                string name = goal._name;
+                int pointValue = goal._pointValue;
+                string description = goal._description;
+                bool isComplete = goal._isComplete;
 
                 switch (type)
                 {
@@ -202,9 +202,9 @@ class Program
                         break;
                     case "ChecklistGoal":
                         ChecklistGoal checklistGoal = (ChecklistGoal)goal;
-                        int timesCompleted = checklistGoal.TimesCompleted;
-                        int requiredCompletions = checklistGoal.RequiredCompletions;
-                        int bonusPoints = checklistGoal.BonusPoints;
+                        int timesCompleted = checklistGoal._timesCompleted;
+                        int requiredCompletions = checklistGoal._requiredCompletions;
+                        int bonusPoints = checklistGoal._bonusPoints;
                         writer.WriteLine($"ChecklistGoal,{name},{pointValue},{description},{isComplete},{timesCompleted},{requiredCompletions},{bonusPoints}");
                         break;
                 }
@@ -233,29 +233,29 @@ class Program
                 {
                     case "SimpleGoal":
                         SimpleGoal simpleGoal = new SimpleGoal();
-                        simpleGoal.Name = parts[1];
-                        simpleGoal.PointValue = int.Parse(parts[2]);
-                        simpleGoal.Description = parts[3];
-                        simpleGoal.IsComplete = bool.Parse(parts[4]);
+                        simpleGoal._name = parts[1];
+                        simpleGoal._pointValue = int.Parse(parts[2]);
+                        simpleGoal._description = parts[3];
+                        simpleGoal._isComplete = bool.Parse(parts[4]);
                         _goals.Add(simpleGoal);
                         break;
                     case "EternalGoal":
                         EternalGoal eternalGoal = new EternalGoal();
-                        eternalGoal.Name = parts[1];
-                        eternalGoal.PointValue = int.Parse(parts[2]);
-                        eternalGoal.Description = parts[3];
-                        eternalGoal.IsComplete = bool.Parse(parts[4]);
+                        eternalGoal._name = parts[1];
+                        eternalGoal._pointValue = int.Parse(parts[2]);
+                        eternalGoal._description = parts[3];
+                        eternalGoal._isComplete = bool.Parse(parts[4]);
                         _goals.Add(eternalGoal);
                         break;
                     case "ChecklistGoal":
                         ChecklistGoal checklistGoal = new ChecklistGoal();
-                        checklistGoal.Name = parts[1];
-                        checklistGoal.PointValue = int.Parse(parts[2]);
-                        checklistGoal.Description = parts[3];
-                        checklistGoal.IsComplete = bool.Parse(parts[4]);
-                        checklistGoal.TimesCompleted = int.Parse(parts[5]);
-                        checklistGoal.RequiredCompletions = int.Parse(parts[6]);
-                        checklistGoal.BonusPoints = int.Parse(parts[7]);
+                        checklistGoal._name = parts[1];
+                        checklistGoal._pointValue = int.Parse(parts[2]);
+                        checklistGoal._description = parts[3];
+                        checklistGoal._isComplete = bool.Parse(parts[4]);
+                        checklistGoal._timesCompleted = int.Parse(parts[5]);
+                        checklistGoal._requiredCompletions = int.Parse(parts[6]);
+                        checklistGoal._bonusPoints = int.Parse(parts[7]);
                         _goals.Add(checklistGoal);
                         break;
                 }
