@@ -1,16 +1,16 @@
 public class Lecture : Event
 {
-    private string speakerName;
-    private int capacity;
+    private string _speakerName;
+    private int _capacity;
 
-    public Lecture(string title, string description, DateTime date, TimeSpan time, Address address, string eSpeakerName, int eCapacity) : base(title, description, date, time, address)
+    public Lecture(string title, string description, DateTime date, TimeSpan time, Address address, string speakerName, int capacity) : base(title, description, date, time, address)
     {
-        speakerName = eSpeakerName;
-        capacity = eCapacity;
+        _speakerName = speakerName;
+        _capacity = capacity;
     }
 
     public string GetEventDetails()
     {
-        return $"{GetFullDetails()}Speaker: {speakerName}\nCapacity: {capacity}";
+        return $"{GetFullDetails()}Speaker: {_speakerName}\nCapacity: {_capacity}";
     }
 }

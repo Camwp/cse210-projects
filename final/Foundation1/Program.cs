@@ -22,15 +22,15 @@ class Program
         // Iterate through the list of videos and display information about each one
         foreach (Video video in videos)
         {
-            Console.WriteLine("Title: " + video.Title);
-            Console.WriteLine("Author: " + video.Author);
-            Console.WriteLine("Length: " + video.Length + " seconds");
+            Console.WriteLine("Title: " + video._title);
+            Console.WriteLine("Author: " + video._author);
+            Console.WriteLine("Length: " + video._length + " seconds");
             Console.WriteLine("Number of comments: " + video.GetCommentCount());
 
             // Iterate through the comments for this video and display each one
-            foreach (Comment comment in video.Comments)
+            foreach (Comment comment in video._comments)
             {
-                Console.WriteLine("Comment by " + comment.Commenter + ": " + comment.Text);
+                Console.WriteLine("Comment by " + comment._commenter + ": " + comment._text);
             }
 
             Console.WriteLine(); 

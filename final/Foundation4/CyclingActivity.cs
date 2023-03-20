@@ -1,26 +1,26 @@
 class CyclingActivity : Activity
     {
-        private double speed;
-        private int duration;
+        private double _speed;
+        private int _duration;
         public CyclingActivity(string date, int actDuration, double cycSpeed)
             : base(date, actDuration)
         {
-            speed = cycSpeed;
-            duration = actDuration;
+            _speed = cycSpeed;
+            _duration = actDuration;
         }
 
         public override double GetDistance()
         {
-            return speed * duration / 60;
+            return _speed * _duration / 60;
         }
 
         public override double GetSpeed()
         {
-            return speed;
+            return _speed;
         }
 
         public override double GetPace()
         {
-            return 60 / speed;
+            return 60 / _speed;
         }
     }

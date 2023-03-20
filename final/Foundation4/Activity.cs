@@ -1,12 +1,12 @@
 abstract class Activity
     {
-        private string date;
-        private int duration;
+        private string _date;
+        private int _duration;
 
         public Activity(string curDate, int actDuration)
         {
-            date = curDate;
-            duration = actDuration;
+            _date = curDate;
+            _duration = actDuration;
         }
 
         public abstract double GetDistance();
@@ -15,6 +15,6 @@ abstract class Activity
 
         public string GetSummary()
         {
-            return $"{date:d} {GetType().Name} ({duration} min) - Distance: {GetDistance():F1} km, Speed: {GetSpeed():F1} km/h, Pace: {GetPace():F1} min/km";
+            return $"{_date:d} {GetType().Name} ({_duration} min) - Distance: {GetDistance():F1} km, Speed: {GetSpeed():F1} km/h, Pace: {GetPace():F1} min/km";
         }
     }

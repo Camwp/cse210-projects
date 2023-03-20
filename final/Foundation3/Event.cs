@@ -1,23 +1,23 @@
 public class Event
 {
-    private string title;
-    private string description;
-    private DateTime date;
-    private TimeSpan time;
-    private Address address;
+    private string _title;
+    private string _description;
+    private DateTime _date;
+    private TimeSpan _time;
+    private Address _address;
 
-    public Event(string eTitle, string eDescription, DateTime eDate, TimeSpan eTime, Address eAddress)
+    public Event(string title, string description, DateTime date, TimeSpan time, Address address)
     {
-        title = eTitle;
-        description = eDescription;
-        date = eDate;
-        time = eTime;
-        address = eAddress;
+        _title = title;
+        _description = description;
+        _date = date;
+        _time = time;
+        _address = address;
     }
 
     public string GetStandardDetails()
     {
-        return $"Title: {title}\nDescription: {description}\nDate: {date.ToShortDateString()}\nTime: {time}\nAddress: {address.ToString()}";
+        return $"Title: {_title}\nDescription: {_description}\nDate: {_date.ToShortDateString()}\nTime: {_time}\nAddress: {_address.ToString()}";
     }
 
     public string GetFullDetails()
@@ -27,6 +27,6 @@ public class Event
 
     public string GetShortDescription()
     {
-        return $"{GetType().Name} - {title} ({date.ToShortDateString()})";
+        return $"{GetType().Name} - {_title} ({_date.ToShortDateString()})";
     }
 }

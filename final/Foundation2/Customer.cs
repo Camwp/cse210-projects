@@ -1,21 +1,21 @@
 class Customer {
-    private string name;
-    private Address address;
+    private string _name;
+    private Address _address;
 
     public Customer(string custName, Address custAddress) {
-        name = custName;
-        address = custAddress;
+        _name = custName;
+        _address = custAddress;
     }
 
     public string GetName() {
-        return name;
+        return _name;
     }
 
     public string GetAddress() {
-        return address.GetFullAddress();
+        return _address.GetFullAddress();
     }
 
     public bool IsInUSA() {
-        return address.IsInUSA();
+        return _address.IsInUSA();
     }
 }

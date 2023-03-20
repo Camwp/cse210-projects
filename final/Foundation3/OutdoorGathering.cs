@@ -1,14 +1,14 @@
 public class OutdoorGathering : Event
 {
-    private string weatherStatement;
+    private string _weatherStatement;
 
-    public OutdoorGathering(string title, string description, DateTime date, TimeSpan time, Address address, string eWeatherStatement) : base(title, description, date, time, address)
+    public OutdoorGathering(string title, string description, DateTime date, TimeSpan time, Address address, string weatherStatement) : base(title, description, date, time, address)
     {
-        weatherStatement = eWeatherStatement;
+        _weatherStatement = weatherStatement;
     }
 
     public string GetEventDetails()
     {
-        return $"{GetFullDetails()}Weather Statement: {weatherStatement}";
+        return $"{GetFullDetails()}Weather Statement: {_weatherStatement}";
     }
 }

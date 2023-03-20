@@ -1,28 +1,28 @@
 class SwimmingActivity : Activity
     {
-        private int laps;
-        private int duration;
+        private int _laps;
+        private int _duration;
 
         public SwimmingActivity(string date, int actDuration, int totLaps)
             : base(date, actDuration)
         {
-            laps = totLaps;
-            duration = actDuration;
+            _laps = totLaps;
+            _duration = actDuration;
         }
 
         public override double GetDistance()
         {
-            return laps * 50 / 1000;
+            return _laps * 50 / 1000;
         }
 
         public override double GetSpeed()
         {
-            return GetDistance() / duration * 60;
+            return GetDistance() / _duration * 60;
         }
 
         public override double GetPace()
         {
-            return duration / GetDistance();
+            return _duration / GetDistance();
         }
 
         public string GetSummaryInMiles()

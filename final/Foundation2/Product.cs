@@ -1,40 +1,40 @@
 class Product
     {
-        private string name;
-        private string productId;
-        private double price;
-        private int quantity;
+        private string _name;
+        private string _productId;
+        private double _price;
+        private int _quantity;
 
-        public Product(string pName, string pProductId, double pPrice, int pQuantity)
+        public Product(string name, string productId, double price, int puantity)
         {
-            name = pName;
-            productId = pProductId;
-            price = pPrice;
-            quantity = pQuantity;
+            _name = name;
+            _productId = productId;
+            _price = price;
+            _quantity = puantity;
         }
 
         public string GetName()
         {
-            return name;
+            return _name;
         }
 
         public string GetProductId()
         {
-            return productId;
+            return _productId;
         }
 
         public double GetPrice()
         {
-            return price;
+            return _price;
         }
 
         public int GetQuantity()
         {
-            return quantity;
+            return _quantity;
         }
 
         public double GetTotalPrice()
         {
-            return price * quantity;
+            return _price * _quantity;
         }
     }
